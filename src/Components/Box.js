@@ -9,7 +9,7 @@ const Box = (props)=>{
         if(props.isWinner){
             console.log('winner')
             for (const index in props.winningCombo){
-                console.log(index)
+                // console.log(index)
                 if (props.index === props.winningCombo[index]){
                     setWinningBox(true);
                 }

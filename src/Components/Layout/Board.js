@@ -17,10 +17,11 @@ const Board = () => {
                         // console.log(pattern)
                     if (boxes[pattern[0]] == boxes[pattern[1]] && boxes[pattern[1]] == boxes[pattern[2]]){
                         setIsWinner(true);
-                        setWinner(value);
+                        
                         const winningPattern = pattern;
                         setWinningCombo(winningPattern);
-                        console.log(winningCombo);
+                        setWinner(boxes[winningPattern[0]]);
+                        console.log('winner',value);
                     }
                  }
             }
