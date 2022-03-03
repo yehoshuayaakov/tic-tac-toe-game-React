@@ -19,18 +19,18 @@ const Box = (props)=>{
     },[props.isWinner])
     const handleClick=(index)=>{
         if(props.xTurn){
-            props.boxes[index] = 'X';
-            // props.setBoxes(...props.boxes, props.boxes[index]); 
+            const newBoxes = [...props.boxes];
+            newBoxes[index] = 'X';
+            props.setBoxes(newBoxes);
             console.log(props.boxes[index])
-            props.setXTurn(false);
         }
         else {
-            props.boxes[index] = 'O';
-            // props.setBoxes(...props.boxes, props.boxes[index]); 
+            const newBoxes = [...props.boxes];
+            newBoxes[index] = 'O';
+            props.setBoxes(newBoxes);
             console.log(props.boxes[index])
-            props.setXTurn(true);
-        }
-        
+        }  
+        props.setXTurn(!props.xTurn);      
     }
     return(
     <button className={winningBox ? styles.winningBox : styles.button} disabled={props.value!=null} onClick={()=>{handleClick(props.index)}}>
