@@ -16,7 +16,6 @@ const Board = () => {
                 // console.log(pattern)
                 if (boxes[pattern[0]] === boxes[pattern[1]] && boxes[pattern[1]] === boxes[pattern[2]] && (boxes[pattern[0]] !== null)) {
                     setIsWinner(true);
-
                     const winningPattern = pattern;
                     setWinningCombo(winningPattern);
                     setWinner(boxes[winningPattern[0]]);
@@ -52,7 +51,7 @@ const Board = () => {
                 <div className={styles.board}>
                     {boxes.map((box, i) => (
                         <div key={i}>
-                            <Box key={i}
+                            <Box
                                 index={i}
                                 value={box}
                                 boxes={boxes}
@@ -66,7 +65,7 @@ const Board = () => {
 
                     )}
                 </div>
-                {isWinner && <div><h1>{winner} is WINNER!!!</h1>
+                {isWinner && <div><h1>{winner} is the WINNER!!!</h1>
                     <span className={styles.playAgain} onClick={resetGame}>Play Again?</span>
                 </div>}
                 {boxes.every(value => value !== null) && !winner && <div><h1>StaleMate!</h1>

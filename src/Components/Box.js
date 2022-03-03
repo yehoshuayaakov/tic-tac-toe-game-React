@@ -3,9 +3,8 @@ import styles from './Box.module.css'
 
 const Box = (props)=>{
     const [winningBox, setWinningBox] = useState(false);
-    useEffect(()=>{
-        // console.log('check!!!!!', props.isWinner)
-        
+    
+    useEffect(()=>{        
         if(props.isWinner){
             console.log('winner')
             for (const index in props.winningCombo){
@@ -17,6 +16,7 @@ const Box = (props)=>{
         }
         else setWinningBox(false)
     },[props.isWinner])
+
     const handleClick=(index)=>{
         if(props.xTurn){
             const newBoxes = [...props.boxes];
@@ -33,7 +33,7 @@ const Box = (props)=>{
         props.setXTurn(!props.xTurn);      
     }
     return(
-    <button className={winningBox ? styles.winningBox : styles.button} disabled={props.value!=null} onClick={()=>{handleClick(props.index)}}>
+    <button className={winningBox ? styles.winningBox : styles.button} disabled={props.value!=null || props.isWinner} onClick={()=>{handleClick(props.index)}}>
         <div className={styles.XorO}>{props.value}
             </div>
     </button>

@@ -21,6 +21,7 @@
 }
 .playAgain:hover{
     cursor: pointer;
+    color: rgb(171, 85, 252);
 }
 /* .topMessage h1{
     color: rgb(87, 98, 129);
