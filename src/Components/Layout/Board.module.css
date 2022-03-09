@@ -2,7 +2,17 @@
     display: flex;
     flex-direction: column;
 }
-
+.contentContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.scoreArea{
+    height: 150px;
+    width: 150px;
+    align-items: center;
+    
+}
 .board {
     height: 300px;
     width: 300px;

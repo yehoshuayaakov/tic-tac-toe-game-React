@@ -10,6 +10,8 @@ const Board = () => {
     const [isWinner, setIsWinner] = useState(false);
     const [winner, setWinner] = useState('');
     const [winningCombo, setWinningCombo] = useState([]);
+    const [xScore, setXScore] = useState(0);
+    const [oScore, setOScore] = useState(0);
     const checkForWinner = () => {
         boxes.forEach(value => {
             for (const pattern of winningPatterns) {
@@ -19,7 +21,8 @@ const Board = () => {
                     const winningPattern = pattern;
                     setWinningCombo(winningPattern);
                     setWinner(boxes[winningPattern[0]]);
-                    console.log('winner', value);
+                    console.log('winner!!!!!!!', winner);
+                   
                 }
             }
         })
@@ -34,9 +37,20 @@ const Board = () => {
     }
     useEffect(() => {
         checkForWinner();
+        if (winner === 'X'){
+            setXScore(prev=>{
+                return prev+=1;
+            });
+            console.log("useEffectWInnerX", xScore)
+        }
+        else if (winner === 'O'){
+            setOScore(prev=>{
+                return prev+=1;
+            });
+        }
         console.log(isWinner);
 
-    }, [xTurn])
+    }, [xTurn, winner])
 
     return (
         <>
@@ -48,22 +62,32 @@ const Board = () => {
                     }
                 </div>}
                 {isWinner && <h1 className={styles.topMessage}>Game Over!</h1>}
-                <div className={styles.board}>
-                    {boxes.map((box, i) => (
-                        <div key={i}>
-                            <Box
-                                index={i}
-                                value={box}
-                                boxes={boxes}
-                                setBoxes={setBoxes}
-                                setXTurn={setXTurn}
-                                xTurn={xTurn}
-                                isWinner={isWinner}
-                                winningCombo={winningCombo} />
-                        </div>
-                    )
+                <div className={styles.contentContainer}>
+                    <div className={styles.scoreArea}>
+                        <h2>X Score</h2>
+                        <div><h2>{xScore}</h2></div>
+                    </div>
+                    <div className={styles.board}>
+                        {boxes.map((box, i) => (
+                            <div key={i}>
+                                <Box
+                                    index={i}
+                                    value={box}
+                                    boxes={boxes}
+                                    setBoxes={setBoxes}
+                                    setXTurn={setXTurn}
+                                    xTurn={xTurn}
+                                    isWinner={isWinner}
+                                    winningCombo={winningCombo} />
+                            </div>
+                        )
 
-                    )}
+                        )}
+                    </div>
+                    <div className={styles.scoreArea}>
+                        <h2 >O Score</h2>
+                        <div><h2>{oScore}</h2></div>
+                    </div>
                 </div>
                 {isWinner && <div><h1>{winner} is the WINNER!!!</h1>
                     <span className={styles.playAgain} onClick={resetGame}>Play Again?</span>
