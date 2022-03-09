@@ -3,21 +3,56 @@
     flex-direction: column;
 }
 .contentContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    /* display: flex;
+    justify-content: space-around; */
+    /* align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
-.scoreArea{
-    height: 150px;
+.scoreAreaX{
+    /* height: 150px;
+    width: 150px; */
+    align-self: center;
+    height: auto;
     width: 150px;
-    align-items: center;
+    justify-self: center;
+    padding: 10px;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    background-color: rgb(169, 177, 250);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     
+    color: rgb(44, 44, 192);
+    
+}
+.scoreAreaX h2 {
+    text-decoration: underline;
+    margin-bottom: 0;
+}
+.scoreAreaO{
+    /* height: 150px;
+    width: 150px; */
+    align-self: center;
+    height: auto;
+    width: 150px;
+    justify-self: center;
+    padding: 10px;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    background-color: rgb(198, 137, 255);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    color: rgb(108, 0, 170);
+}
+.scoreAreaO h2 {
+    text-decoration: underline;
+    width: auto;
 }
 .board {
     height: 300px;
     width: 300px;
     background-color: rgb(34, 33, 33);
-    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;   
+     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;

@@ -63,9 +63,9 @@ const Board = () => {
                 </div>}
                 {isWinner && <h1 className={styles.topMessage}>Game Over!</h1>}
                 <div className={styles.contentContainer}>
-                    <div className={styles.scoreArea}>
+                    <div className={styles.scoreAreaX}>
                         <h2>X Score</h2>
-                        <div><h2>{xScore}</h2></div>
+                        <div><h1>{xScore}</h1></div>
                     </div>
                     <div className={styles.board}>
                         {boxes.map((box, i) => (
@@ -84,9 +84,9 @@ const Board = () => {
 
                         )}
                     </div>
-                    <div className={styles.scoreArea}>
-                        <h2 >O Score</h2>
-                        <div><h2>{oScore}</h2></div>
+                    <div className={styles.scoreAreaO}>
+                        <h2>O Score</h2>
+                        <div><h1>{oScore}</h1></div>
                     </div>
                 </div>
                 {isWinner && <div><h1>{winner} is the WINNER!!!</h1>

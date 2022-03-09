@@ -1,10 +1,12 @@
 .header {
     height: 14%;
-    background-color: rgb(2, 136, 136);
+    background: linear-gradient(to right, rgba(0,0,255,0.75), rgba(255,0,0,0.75));
+    /* background-color: rgb(2, 136, 136); */
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom : black 2px solid;
 }
 h1 {
 color: rgb(78, 77, 77);
