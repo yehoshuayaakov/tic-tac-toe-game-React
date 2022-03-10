@@ -22,7 +22,7 @@ const Board = () => {
                     setWinningCombo(winningPattern);
                     setWinner(boxes[winningPattern[0]]);
                     console.log('winner!!!!!!!', winner);
-                   
+
                 }
             }
         })
@@ -37,15 +37,15 @@ const Board = () => {
     }
     useEffect(() => {
         checkForWinner();
-        if (winner === 'X'){
-            setXScore(prev=>{
-                return prev+=1;
+        if (winner === 'X') {
+            setXScore(prev => {
+                return prev += 1;
             });
             console.log("useEffectWInnerX", xScore)
         }
-        else if (winner === 'O'){
-            setOScore(prev=>{
-                return prev+=1;
+        else if (winner === 'O') {
+            setOScore(prev => {
+                return prev += 1;
             });
         }
         console.log(isWinner);
@@ -55,6 +55,7 @@ const Board = () => {
     return (
         <>
             <div className={styles.container}>
+                <div className={styles.side}></div>
                 {!isWinner && <div className={styles.topMessage}>
                     {boxes.every(value => value === null) ? <h1>X Goes first</h1> :
                         !xTurn ? <h1>O's Turn</h1> :
@@ -63,7 +64,8 @@ const Board = () => {
                 </div>}
                 {isWinner && <h1 className={styles.topMessage}>Game Over!</h1>}
                 <div className={styles.contentContainer}>
-                    <div className={styles.scoreAreaX}>
+
+                    <div className={`${styles.scoreAreaX} ${isWinner && winner === 'X' && styles.addScore}`}>
                         <h2>X Score</h2>
                         <div><h1>{xScore}</h1></div>
                     </div>
@@ -84,10 +86,11 @@ const Board = () => {
 
                         )}
                     </div>
-                    <div className={styles.scoreAreaO}>
+                    <div className={`${styles.scoreAreaO} ${isWinner && winner === 'O' && styles.addScore}`}>
                         <h2>O Score</h2>
                         <div><h1>{oScore}</h1></div>
                     </div>
+
                 </div>
                 {isWinner && <div><h1>{winner} is the WINNER!!!</h1>
                     <span className={styles.playAgain} onClick={resetGame}>Play Again?</span>

@@ -2,12 +2,21 @@
     display: flex;
     flex-direction: column;
 }
+.gridContainer{
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+}
 .contentContainer {
     /* display: flex;
     justify-content: space-around; */
     /* align-items: center; */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:  repeat(3, 1fr);
+}
+.side {
+    height: 100%;
+    background-color: blue;
+    
 }
 .scoreAreaX{
     /* height: 150px;
@@ -25,6 +34,12 @@
     color: rgb(44, 44, 192);
     
 }
+.addScore{
+    animation: mymove 2s;
+}
+@keyframes mymove {
+    100% {transform: rotateY(360deg);}
+  }
 .scoreAreaX h2 {
     text-decoration: underline;
     margin-bottom: 0;
@@ -47,6 +62,10 @@
     text-decoration: underline;
     width: auto;
 }
+.scoreAreaO h1 {
+    color: rgb(108, 0, 170);
+
+}
 .board {
     height: 300px;
     width: 300px;
@@ -67,6 +86,49 @@
 .playAgain:hover{
     cursor: pointer;
     color: rgb(171, 85, 252);
+}
+@media screen and (max-width: 900px) {
+    .board {
+        height: 200px;
+        width: 200px;
+        background-color: rgb(34, 33, 33);
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;   
+         display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border-radius: 10px;
+    }
+    .scoreAreaX{
+        /* height: 150px;
+        width: 150px; */
+        align-self: center;
+        height: auto;
+        width: auto;
+        justify-self: center;
+        padding: 10px;
+        /* border: 1px solid black; */
+        border-radius: 15px;
+        background-color: rgb(169, 177, 250);
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        
+        color: rgb(44, 44, 192);
+        
+    }
+    .scoreAreaO{
+        /* height: 150px;
+        width: 150px; */
+        align-self: center;
+        height: auto;
+        width: auto;
+        justify-self: center;
+        padding: 10px;
+        /* border: 1px solid black; */
+        border-radius: 15px;
+        background-color: rgb(198, 137, 255);
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        color: rgb(108, 0, 170);
+    }
 }
 /* .topMessage h1{
     color: rgb(87, 98, 129);

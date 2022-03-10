@@ -1,13 +1,27 @@
 .App {
   text-align: center;
-  background: linear-gradient rgb(202, 202, 255);
-  background: linear-gradient(to bottom, rgb(184, 184, 252), rgba(252, 250, 250, 0.877));
+  
   min-height: 100vh;
+  min-width: 100vw;
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: 100px auto;
   
 }
+.header{
+  grid-column: 1/-1;
+  grid-row: 1/2;
+}
 .board {
+  background: linear-gradient(to bottom, rgb(184, 184, 252), rgba(252, 250, 250, 0.877));
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 500px;
+  height: 100%;
+  margin-top: 2px;
+}
+.side{
+  height: 100%;
+  background-color: rgb(168, 168, 252);
+  margin-top: 2px;
 }

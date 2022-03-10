@@ -6,10 +6,14 @@ function App() {
   return (
     <>
       <div className='App'>
-        <Header />
-        <div className='board'>
-          <Board />
+        <div className='header'>
+           <Header/>
         </div>
+       <div className='side'></div>
+        <div className='board'>
+          <Board/>
+        </div>
+        <div className='side'></div>
       </div>
     </>
   );
