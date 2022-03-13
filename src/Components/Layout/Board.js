@@ -35,6 +35,11 @@ const Board = () => {
         setWinningCombo([]);
 
     }
+    const clearScores = () => {
+        resetGame();
+        setXScore(0);
+        setOScore(0);
+    }
     useEffect(() => {
         checkForWinner();
         if (winner === 'X') {
@@ -94,9 +99,12 @@ const Board = () => {
                 </div>
                 {isWinner && <div><h1>{winner} is the WINNER!!!</h1>
                     <span className={styles.playAgain} onClick={resetGame}>Play Again?</span>
+                    <span className={styles.clearScores} onClick={clearScores}>Clear Scores</span>
+                    <div style={{height:'20px'}}></div>
                 </div>}
                 {boxes.every(value => value !== null) && !winner && <div><h1>StaleMate!</h1>
-                    <span className={styles.playAgain} onClick={resetGame}>Play Again?</span></div>}
+                    <span className={styles.playAgain} onClick={resetGame}>Play Again?</span>
+                   </div>}
             </div>
         </>
     )
